@@ -28,10 +28,9 @@ and pushing your completed project to it, and email us the link to it.
 ## Installation
 
 - `git clone https://github.com/BNSLtd/take-home-laravel-flutter.git`
-- `cd laravel-vue-crud-starter/`
+- `cd take-home-laravel-flutter/`
 - `composer install`
 - `cp .env.example .env`
-- Update `.env` and set your database credentials
 - `php artisan key:generate`
 - `php artisan migrate`
 - `php artisan db:seed`
@@ -42,6 +41,8 @@ and pushing your completed project to it, and email us the link to it.
 
 ## Install with Docker
 
+- `git clone https://github.com/BNSLtd/take-home-laravel-flutter.git`
+- `cd take-home-laravel-flutter/`
 - `docker-compose up -d`
 - `docker exec -it vue-starter /bin/bash`
 - `composer install`
@@ -53,3 +54,7 @@ and pushing your completed project to it, and email us the link to it.
 - Application http://localhost:8008/
 - Adminer for Database http://localhost:8080/
 - Server: db, user: root, Password: 123456
+
+## Hot Reload for Vue.js
+
+- npm run hot
