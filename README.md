@@ -27,7 +27,7 @@ and pushing your completed project to it, and email us the link to it.
 
 ## Installation
 
-- `git clone https://github.com/AnowarCST/laravel-vue-crud-starter.git`
+- `git clone https://github.com/BNSLtd/take-home-laravel-flutter.git`
 - `cd laravel-vue-crud-starter/`
 - `composer install`
 - `cp .env.example .env`
@@ -52,4 +52,4 @@ and pushing your completed project to it, and email us the link to it.
 - `php artisan passport:install`
 - Application http://localhost:8008/
 - Adminer for Database http://localhost:8080/
-- DBhost: yourIP:3307, user: root, Password: 123456
+- Server: db, user: root, Password: 123456
