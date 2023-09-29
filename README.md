@@ -1,40 +1,29 @@
 
-# Laravel+Vue Crud Starter
+# Laravel+Vue Take-Home Test
 
+Your task is to take this existing template, which is essentially an admin panel for
+a products system, and expand it with the required functionality:
 
-[![Build Status](https://dev.azure.com/anowarhossain/laravel-vue-crud-starter/_apis/build/status/AnowarCST.laravel-vue-crud-starter?branchName=master)](https://dev.azure.com/anowarhossain/laravel-vue-crud-starter/_build/latest?definitionId=6&branchName=master)
+- Create a product catalog/shopping cart which non-admin users can access, and place orders. Create tables/backend api/vue components to accomplish this.
+- Add a section in the admin panel to view orders. There should be an option to raise an invoice to the user from the order. The order should have a link to the invoice if one exists.
+- Add a filter to the order list to show orders that are invoiced or not invoiced.
+- Add a section to view invoices, with a link to the order
 
-
-## About Repository
-
-A very simple Laravel 8 + Vue 2 + AdminLTE 3 based Curd Starter template for SPA Application.
 <p align="center">
 <img src="https://i.imgur.com/mZAHbUL.png">
-<img src="https://i.imgur.com/3hhoQnq.png">
-<img src="https://i.imgur.com/aHtQkYl.png">
-<img src="https://i.imgur.com/V7OuwLn.png">
 </p>
 
-## Tech Specification
+# Submitting the completed task
+
+You can submit the completed task to us by creating a new github repository (NOT forked from this repository),
+and pushing your completed project to it, and email us the link to it.
+
+## Tech Stack Used
 
 - Laravel 8
 - Vue 2 + VueRouter + vue-progressbar + sweetalert2 + laravel-vue-pagination
 - Laravel Passport
 - Admin LTE 3 + Bootstrap 4 + Font Awesome 5
-- PHPUnit Test Case/Test Coverage
-
-## Features
-
-- Modal based Create+Edit, List with Pagination, Delete with Sweetalert
-- Login, Register, Forget+Reset Password as default auth
-- Profile, Update Profile, Change Password, Avatar
-- Product Management 
-- User Management
-- Settings: Categories, Tags
-- Frontend and Backend User ACL with Gate Policy (type: admin/user)
-- Simple Static Dashboard
-- Developer Options for OAuth Clients and Personal Access Token
-- Build with Docker
 
 ## Installation
 
@@ -64,31 +53,3 @@ A very simple Laravel 8 + Vue 2 + AdminLTE 3 based Curd Starter template for SPA
 - Application http://localhost:8008/
 - Adminer for Database http://localhost:8080/
 - DBhost: yourIP:3307, user: root, Password: 123456
-
-
-## Unit Test
-
-#### run PHPUnit
-
-```bash
-# run PHPUnit all test cases
-vendor/bin/phpunit
-# or Feature test only
-vendor/bin/phpunit --testsuite Feature
-```
-
-#### Code Coverage Report
-
-```bash
-# reports is a directory name
-vendor/bin/phpunit --coverage-html reports/
-```
-A `reports` directory has been created for code coverage report. Open the dashboard.html.
-
-
-## Credit
-This repository is motivated by [Hujjat/laravStart](https://github.com/Hujjat/laravStart) and his awesome video tutorial in [Youtube](https://www.youtube.com/playlist?list=PLB4AdipoHpxaHDLIaMdtro1eXnQtl_UvE).
-
-## License
-
-[MIT license](https://opensource.org/licenses/MIT).
