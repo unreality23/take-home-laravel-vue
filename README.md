@@ -27,7 +27,7 @@ and pushing your completed project to it, and email us the link to it.
 
 ## Installation
 
-- `git clone https://github.com/BNSLtd/take-home-laravel-flutter.git`
+- `git clone https://github.com/BNSLtd/take-home-laravel-vue.git`
 - `cd take-home-laravel-flutter/`
 - `composer install`
 - `cp .env.example .env`
@@ -41,7 +41,7 @@ and pushing your completed project to it, and email us the link to it.
 
 ## Install with Docker
 
-- `git clone https://github.com/BNSLtd/take-home-laravel-flutter.git`
+- `git clone https://github.com/BNSLtd/take-home-laravel-vue.git`
 - `cd take-home-laravel-flutter/`
 - `docker-compose up -d`
 - `docker exec -it vue-starter /bin/bash`
