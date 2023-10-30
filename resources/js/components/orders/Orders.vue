@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Latest Orders</h3>
+                            <h3 class="card-title">Orders</h3>
 
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -18,7 +18,7 @@
                         </div>
 
                         <div class="card-body p-0">
-                            <div>
+                            <div class="p-2">
                                 <select v-model="invoiceFilter" @change="fetchOrders">
                                     <option value="">All Orders</option>
                                     <option value="invoiced">Invoiced</option>
