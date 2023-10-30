@@ -5,7 +5,6 @@
                 <h3>Order Details</h3>
                 <p>Order ID: <b>{{ order.id }}</b></p>
                 <p>Order Status: <b>{{ order.status }}</b></p>
-                <p>Total Amount: {{ order.total_amount }}£</p>
 
                 <h3>Order Items</h3>
                 <div class="order-details">
@@ -23,7 +22,8 @@
                         <div>{{ detail.price }}£</div>
                     </div>
                 </div>
-                <div v-if="order.invoice" class="pt-5">
+                <p class="pt-2 text-right">Total Amount: {{ order.total_amount }}£</p>
+                <div v-if="order.invoice" class="pt-3">
                     <h3>Invoice</h3>
                     <p>Invoice Number:
                         <router-link :to="`/invoice/${order.invoice.order_id}`">

@@ -31,8 +31,9 @@
                                     <div>Order ID</div>
                                     <div>Total Amount</div>
                                     <div>Status</div>
-                                    <div>View Details</div>
+                                    <div>View Order</div>
                                     <div>Invoice</div>
+                                    <div>Dropdown</div>
                                 </div>
 
                                 <div v-for="order in orders" :key="order.id" class="table-row"
@@ -57,17 +58,14 @@
                                         <button
                                             v-if="$gate.isAdmin()"
                                             @click="updateOrderStatus(order)"
-                                            class="btn btn-success elevation-1"
+                                            class="btn btn-success elevation-1 mt-2"
                                         >Update Status
                                         </button>
                                     </div>
                                     <div>
-                                        <button
-                                            @click="toggleDetails(order)"
-                                            class="btn btn-info elevation-1"
-                                        >
-                                            View Details
-                                        </button>
+                                        <router-link :to="`/order/${order.id}`" class="text-white btn btn-info elevation-1">
+                                            View Order
+                                        </router-link>
                                     </div>
                                     <div>
                                         <button v-if="$gate.isAdmin() && !order.invoice_id"
@@ -77,7 +75,14 @@
                                         </button>
                                         <div v-else-if="isInvoiceGenerated || order.invoice_id ">Invoice Generated</div>
                                     </div>
-
+                                    <div>
+                                        <button
+                                            @click="toggleDetails(order)"
+                                            class="btn btn-info elevation-1"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
                                     <div v-if="order.showDetails" class="order-details">
                                         <div class="details-header"
                                              :class="{'admin': $gate.isAdmin(), 'user': !$gate.isAdmin()}">
@@ -222,7 +227,7 @@ export default {
 .details-header.admin,
 .detail-row {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     background-color: #fff;
     width: 100%;
 }
@@ -232,7 +237,7 @@ export default {
 .details-header.user,
 .detail-row.user {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     background-color: #fff;
     width: 100%;
 }
