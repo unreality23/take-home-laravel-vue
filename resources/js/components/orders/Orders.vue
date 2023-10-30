@@ -54,15 +54,26 @@
                                             <option value="cancelled">Cancelled</option>
                                             <option value="processing">Processing</option>
                                         </select>
-                                        <button v-if="$gate.isAdmin()" @click="updateOrderStatus(order)">Update Status
+                                        <button
+                                            v-if="$gate.isAdmin()"
+                                            @click="updateOrderStatus(order)"
+                                            class="btn btn-success elevation-1"
+                                        >Update Status
                                         </button>
                                     </div>
                                     <div>
-                                        <button @click="toggleDetails(order)">View Details</button>
+                                        <button
+                                            @click="toggleDetails(order)"
+                                            class="btn btn-info elevation-1"
+                                        >
+                                            View Details
+                                        </button>
                                     </div>
                                     <div>
                                         <button v-if="$gate.isAdmin() && !order.invoice_id"
-                                                @click="generateInvoice(order)">Generate Invoice
+                                                @click="generateInvoice(order)"
+                                                class="btn btn-success elevation-1">
+                                            Generate Invoice
                                         </button>
                                         <div v-else-if="isInvoiceGenerated || order.invoice_id ">Invoice Generated</div>
                                     </div>
@@ -155,8 +166,20 @@ export default {
                 console.log(newStatus);
                 if (response.data.status === newStatus) {
                     order.status = newStatus; // Update the local state
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Status changed',
+                        text: `Order Status was updated succesfully to "${order.status}"`,
+                        showConfirmButton: false,
+                        timer: 2500
+                    })
                 } else {
                     console.error('The status was not updated on the server.');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Ohoh..',
+                        text: 'The status was not updated on the server.'
+                    })
                 }
             } catch (error) {
                 console.error('An error occurred while updating the order status:', error)
@@ -168,6 +191,11 @@ export default {
                 if (response.data.message === 'Invoice created successfully') {
                     this.$set(order, 'invoice_id', response.data.invoice_id); // Update the local state
                     this.isInvoiceGenerated = true;
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Invoice generated',
+                        text: `Invoice is generated succesfully, click on order for a view`,
+                    })
                 }
             } catch (error) {
                 console.error('An error occurred while generating the invoice:', error);
@@ -196,6 +224,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     background-color: #fff;
+    width: 100%;
 }
 
 .table-header.user,
@@ -205,10 +234,11 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     background-color: #fff;
+    width: 100%;
 }
 
 .order-details {
-    grid-column: span 4;
+    grid-column: span 6;
 }
 
 .table-header div {
@@ -225,6 +255,8 @@ export default {
 
 button {
     cursor: pointer;
+    border: #38c172;
+    color: #fff;
 }
 
 .badge {

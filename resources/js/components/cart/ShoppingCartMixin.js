@@ -19,11 +19,21 @@ export default {
 
                 if (response.status === 200) {
                     this.cartItems = [];
-                    alert('Order placed successfully!');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Order placed succesfully'
+                    })
+
                 }
 
             } catch (error) {
                 console.error('An error occured while placing the order: ', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ohoh..',
+                    text: 'An error occured while placing the order'
+                })
             }
 
         },

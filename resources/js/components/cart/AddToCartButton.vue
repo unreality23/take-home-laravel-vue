@@ -1,5 +1,5 @@
 <template>
-    <button @click="addToCart">
+    <button @click="addToCart" class="btn btn-success elevation-1">
         Add To Cart
     </button>
 </template>
@@ -22,5 +22,8 @@ export default {
 </script>
 
 <style scoped>
-
+    button {
+        cursor: pointer;
+        border: #38c172;
+    }
 </style>

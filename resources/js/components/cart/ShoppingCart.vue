@@ -1,6 +1,6 @@
 <template>
     <div class="shopping-cart" v-if="isCartVisible">
-        <button class="close-btn" @click="toggleCart">Close</button>
+        <button class="btn btn-danger close-btn" @click="toggleCart">Close</button>
         <h2>Shopping Cart</h2>
         <div v-if="cartItems.length > 0">
             <ul>
@@ -14,11 +14,11 @@
                         <p>{{ item.product.price }}£</p>
                         <p>Quantity: {{ item.quantity }}</p>
                     </div>
-                    <button @click="removeFromCart(item.product.id)" class="remove-button">X</button>
+                    <button @click="removeFromCart(item.product.id)" class="remove-button btn btn-danger">X</button>
                 </li>
             </ul>
             <div>
-                <button @click="placeOrder">Place Order</button>
+                <button @click="placeOrder" class="btn btn-success elevation-1">Place Order</button>
             </div>
         </div>
         <div v-else>
