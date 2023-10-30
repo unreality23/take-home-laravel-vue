@@ -2,6 +2,7 @@ export default [
     {path: '/dashboard', component: require('./components/Dashboard.vue').default},
     {path: '/profile', component: require('./components/Profile.vue').default},
     {path: '/orders', component: require('./components/orders/Orders.vue').default},
+    {path: '/order/:order_id', component: require('./components/orders/OrderDetails.vue').default},
     {path: '/invoice/:orderId', component: require('./components/invoice/Invoice.vue').default, props: true},
     {path: '/invoices/', component: require('./components/invoice/Invoices.vue').default, props: true},
     {path: '/developer', component: require('./components/Developer.vue').default},

@@ -59,6 +59,7 @@ Route::namespace( 'App\\Http\\Controllers' )->group( function () {
 Route::namespace( 'App\\Http\\Controllers' )->group( function () {
     Route::middleware( [ 'auth:api' ] )->group( function () {
         Route::get( '/invoices', 'InvoiceController@index' );
+        Route::get('/order/{order_id}', 'OrderController@showOrderDetails');
         Route::prefix( 'orders' )->group( function () {
             Route::post( '/', 'OrderController@store' );
             Route::get( '/', 'OrderController@index' );

@@ -132,4 +132,24 @@ class OrderController extends Controller {
             return response()->json( [ 'message' => 'Invoice already exists for this order' ] );
         }
     }
+
+    public function showOrderDetails($order_id) {
+        try {
+            $order = Order::with('orderDetails.product', 'invoice')
+                          ->findOrFail($order_id);
+
+            return response()->json([
+                'success' => true,
+                'order' => $order
+            ]);
+        } catch(\Exception $e) {
+            // Log the error message
+            \Log::error($e->getMessage());
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Order not found or an error occurred.'
+            ], 404);
+        }
+    }
 }

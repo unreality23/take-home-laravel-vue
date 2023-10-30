@@ -29,12 +29,15 @@
                                      :class="{'admin': $gate.isAdmin(), 'user': !$gate.isAdmin()}">
                                     <div v-if="$gate.isAdmin()">{{ invoice.order.user_id }}</div>
                                     <div>
-                                        <router-link :to="`/invoice/${invoice.order_id}`">{{
-                                                invoice.invoice_number
-                                            }}
+                                        <router-link :to="`/invoice/${invoice.order_id}`">
+                                            {{ invoice.invoice_number }}
                                         </router-link>
                                     </div>
-                                    <div>{{ invoice.order_id }}</div>
+                                    <div>
+                                        <router-link :to="`/order/${invoice.order_id}`">
+                                            {{ invoice.order_id }}
+                                        </router-link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
