@@ -55,11 +55,6 @@ class OrderController extends Controller {
                 $orderDetail->save();
             }
 
-            if ( $order->status === 'shipped' ) {
-                $this->createInvoice( $order );
-            }
-
-
             $this->clearCart( auth()->id() );
 
             return response()->json( [ 'message' => 'Order placed successfully' ] );
@@ -94,9 +89,6 @@ class OrderController extends Controller {
     }
 
     public function getInvoice( Order $order ) {
-        if ( $order->status === 'shipped' ) {
-            $this->createInvoice( $order );
-        }
 
         $invoice = $order->invoice;
 
