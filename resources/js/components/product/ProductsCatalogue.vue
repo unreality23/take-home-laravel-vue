@@ -41,10 +41,10 @@
 
 <script>
 import VueTagsInput from '@johmun/vue-tags-input';
-import ShoppingCart from "../ShoppingCart";
-import AddToCartButton from "../AddToCartButton";
-import ShoppingCartMixin from "../ShoppingCartMixin";
-import BasketIcon from "../BasketIcon";
+import ShoppingCart from "../cart/ShoppingCart";
+import AddToCartButton from "../cart/AddToCartButton";
+import ShoppingCartMixin from "../cart/ShoppingCartMixin";
+import BasketIcon from "../cart/BasketIcon";
 
 export default {
     mixins: [ShoppingCartMixin],
