@@ -2,7 +2,21 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row ">
+                <div class="col-12">
+                    <BasketIcon @toggle-cart="toggleCart" />
+                </div>
+                <div>
+                    <ShoppingCart :cartItems="cartItems"
+                                  @remove-from-cart="removeFromCart"
+                                  @place-order="placeOrder"
+                                  @toggle-cart="toggleCart"
+                                  :isCartVisible.sync="isCartVisible"
+                    />
+
+                </div>
+
                 <div class="col-12 col-sm-6 col-md-3">
+
                     <div class="info-box">
                         <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
@@ -204,9 +218,31 @@
 </template>
 
 <script>
+import ShoppingCart from "./ShoppingCart";
+import AddToCartButton from "./AddToCartButton";
+import ShoppingCartMixin from "./ShoppingCartMixin";
+import BasketIcon from "./BasketIcon";
+
     export default {
+        mixins: [ShoppingCartMixin],
+        components: {
+            ShoppingCart,
+            AddToCartButton,
+            BasketIcon
+        },
+        data() {
+            return {
+                cartItems: [],
+                userId: null,
+                isCartVisible: false,
+            }
+        },
         mounted() {
             console.log('Component mounted.')
+        },
+        created() {
+            this.userId = window.user.id;
+            this.loadCartItems();
         }
     }
 </script>

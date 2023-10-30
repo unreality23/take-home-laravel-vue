@@ -3,19 +3,26 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-import Vue from 'vue/dist/vue'
+import Vue from 'vue/dist/vue';
+import ProductsCatalogue from './components/product/ProductsCatalogue.vue';
+import moment from 'moment';
+
+import {AlertError, Form, HasError} from 'vform';
+import Gate from "./Gate";
+import Swal from 'sweetalert2';
+import VueProgressBar from 'vue-progressbar'
+/**
+ * Routes imports and assigning
+ */
+import VueRouter from 'vue-router';
+import routes from './routes';
+
 require('./bootstrap');
 
 window.Vue = require('vue');
-import moment from 'moment';
-
-import { Form, HasError, AlertError } from 'vform';
 window.Form = Form;
 
-import Gate from "./Gate";
 Vue.prototype.$gate = new Gate(window.user);
-
-import Swal from 'sweetalert2';
 
 
 const Toast = Swal.mixin({
@@ -25,34 +32,28 @@ const Toast = Swal.mixin({
     timer: 3000,
     timerProgressBar: true,
     onOpen: (toast) => {
-      toast.addEventListener('mouseenter', Swal.stopTimer)
-      toast.addEventListener('mouseleave', Swal.resumeTimer)
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
-  })
+})
 window.Swal = Swal;
 window.Toast = Toast;
 
-import VueProgressBar from 'vue-progressbar'
 Vue.use(VueProgressBar, {
     color: 'rgb(143, 255, 199)',
     failedColor: 'red',
     height: '3px'
-  });
+});
 
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 
 
-/**
- * Routes imports and assigning
- */
-import VueRouter from 'vue-router';
 Vue.use(VueRouter);
-import routes from './routes';
 
 const router = new VueRouter({
     mode: 'history',
-    routes
+    routes,
 });
 // Routes End
 
@@ -67,6 +68,7 @@ const router = new VueRouter({
 // Components
 Vue.component('pagination', require('laravel-vue-pagination'));
 Vue.component('dashboard', require('./components/Dashboard.vue'));
+Vue.component('products-catalogue', require('./components/product/ProductsCatalogue.vue'));
 
 Vue.component(
     'passport-clients',
@@ -90,7 +92,7 @@ Vue.component(
 
 // Filter Section
 
-Vue.filter('myDate',function(created){
+Vue.filter('myDate', function (created) {
     return moment(created).format('MMMM Do YYYY');
 });
 
@@ -102,5 +104,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    components: {
+        'products-catalogue': ProductsCatalogue
+    }
 });

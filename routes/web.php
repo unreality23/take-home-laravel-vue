@@ -26,6 +26,11 @@ Route::get('home', function () {
     return redirect('/dashboard');
 });
 
+
+Route::get('/products-catalogue', function () {
+    return view('products-catalogue');
+});
+
 Route::get('/{vue_capture?}', function () {
     return view('home');
 })->where('vue_capture', '[\/\w\.-]*')->middleware('auth');

@@ -1,19 +1,19 @@
-export default class Gate{
+export default class Gate {
 
-    constructor(user){
+    constructor(user) {
         this.user = user;
     }
 
-    isAdmin(){
+    isAdmin() {
         return this.user.type === 'admin';
     }
 
-    isUser(){
+    isUser() {
         return this.user.type === 'user';
     }
-    
-    isAdminOrUser(){
-        if(this.user.type === 'user' || this.user.type === 'admin'){
+
+    isAdminOrUser() {
+        if (this.user.type === 'user' || this.user.type === 'admin') {
             return true;
         }
     }
