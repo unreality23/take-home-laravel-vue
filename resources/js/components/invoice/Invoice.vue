@@ -31,7 +31,7 @@
                 </tfoot>
             </div>
 
-            <button @click="downloadInvoice">Download Your Invoice in PDF</button>
+            <button @click="downloadInvoice" class="mx-3">Download Your Invoice in PDF</button>
         </div>
         <div v-else>
             <p>No invoice available for this order</p>
